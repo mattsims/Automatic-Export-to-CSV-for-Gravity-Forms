@@ -36,7 +36,7 @@ class GravityFormsAutomaticCSVExport {
 				$decode = json_decode( $display_meta );
 
 				if ( $decode ){
-					$enabled = $decode->automatic_csv_export_for_gravity_forms->enabled;
+					$enabled = isset( $decode->automatic_csv_export_for_gravity_forms ) ? $decode->automatic_csv_export_for_gravity_forms->enabled : 0;
 					if ( $enabled == 1 ) {
 						add_action( 'csv_export_' . $form_id , array( $this, 'gforms_automated_export' ) );
 					}
@@ -100,7 +100,7 @@ class GravityFormsAutomaticCSVExport {
 
 			$form_id = $form['id'];
 
-			$enabled = $form['automatic_csv_export_for_gravity_forms']['enabled'];
+			$enabled = isset( $form['automatic_csv_export_for_gravity_forms'] ) ? $form['automatic_csv_export_for_gravity_forms']['enabled'] : 0;
 
 			if ( $enabled == 1 ) {
 
