@@ -207,6 +207,20 @@ class GravityFormsAutomaticCSVExport {
 	}
 
 
+	/**
+		* Get GMT date
+		*
+		* @param String	$local_date Local date
+		* @return String $date GMT date
+	*/
+	public static function get_gmt_date( $local_date ) {
+		$local_timestamp = strtotime( $local_date );
+		$gmt_timestamp   = GFCommon::get_gmt_timestamp( $local_timestamp );
+		$date            = gmdate( 'Y-m-d H:i:s', $gmt_timestamp );
+		return $date;
+	}
+
+
 	public static function start_automated_export( $form, $offset = 0, $export_id = '' ) {
 
 		$time_start         = microtime( true );
