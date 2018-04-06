@@ -203,7 +203,7 @@ class GravityFormsAutomaticCSVExport {
 
 		$headers[] = 'From: WordPress <wordpress@' . $server . '>';
 		//$headers[] = 'Bcc: bcc@yourdomain.com';
-		wp_mail( $email_address , 'Automatic Form Export', 'CSV export is attached to this message', $headers, $attachments);
+		wp_mail( $email_address , 'Automatic Form Export: ' . $form['title'], 'CSV export is attached to this message', $headers, $attachments);
 	}
 
 
